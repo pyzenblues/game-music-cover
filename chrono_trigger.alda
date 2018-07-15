@@ -1,0 +1,48 @@
+# G Major
+(tempo! 126)
+
+# todo: percussion & pad
+midi-timpani:
+  o2 [g8 r g- g r4 r8 g-]*2 [e8 r e- e r4 r8 e-]*2 [c8 r c- c r4 r8 c-]*2 < [b8 r b- b r4 r8 b-]*2
+
+midi-percussion:
+  V1: o2 [[c8 r c c r4 r8 c]*8]*3
+  V2: (vol 50) o2 [[d8 d16 d16 r8 d d d16 d16 r8 d8]*8]*3
+
+midi-synth-pad-halo: (vol 50)
+  o4 g1~1 e1~1 > c1~1 < g1~1
+
+
+# melody
+midi-string-ensemble-1: (vol 60)
+  o3 b1 | > e2 a | b > e | a b | > c1 | d2 e | f+8. g16~16 f+16 d < b~b2~2.~8 r8 |  # 8 bars
+
+verse1 = [o3 > e8. f+16~8 g8 < b8. > f+16~8 d8~2 r8 < b16 > e f+ g16~8 | b8. b16~8 g16 f+ e2~2.]
+part_a = [
+  verse1 r8 < b | verse1 r8 e16 f+ |  # 8 bars
+  g2 a | b4. > c4 c d d c16 < b b8~4.~2. o3 r8 b |  # 2 bars
+  > e2 g | a g | f+16 e f+ r16~2 f+16 e f+ r16 |  # 5 bars
+]
+midi-reed-organ: (vol 60)
+  r1*7 o3 r2. r8 b8 |  # 8 bars
+  part_a | r2.~8 o3 b8 |
+
+midi-synth-pad-new-age:
+  r1*8  # intro
+  r1*8  # verse1
+  r1*7  # chorus
+  o3 (vol 40) (quant 40) {e8 a b > d e}4 {< b > e g a b} {e g b > c+ d} {< b > e f+ g a} |
+
+midi-reed-organ: (vol 60)
+  part_a | %bridge
+
+bridge = [o4 b2.~8 a16 g | f+2 d | d-8. d16~8 a8~2| ~1 | b2. a8 b | > c+2 d]  # 6 bars
+midi-synth-strings-1: (vol 60)
+  @bridge
+  V1: o3 r2 b8. > e16~8 a | bridge | < b1 | ~1 | bridge %outro
+  V2: o3 r1 r1*7 | r2 b8. > e16~8 a |
+
+midi-reed-organ: (vol 60)
+  @outro o5 e2.~8 d16 e | < b8. a16 ~8 b8 e4. e16 f+ | g8. a16~8 g16 f+ e8. d16~8 < b8 | ~1 |
+  r8 b16 > c d e8 f+16 ~8 g8 ~8 a8 | b8. e16 ~8 > d8 ~8 c8 ~8 < b16 > c | < b8. a16 ~8 g8 a2 |
+  ~2 g4 f+ | f+8. g16 ~8 f+8 d8. < b16 ~8 > e8 | ~1 |
