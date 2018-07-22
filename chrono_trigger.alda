@@ -3,21 +3,40 @@
 
 # todo: percussion & pad
 midi-timpani:
-  o2 [g8 r g- g r4 r8 g-]*2 [e8 r e- e r4 r8 e-]*2 [c8 r c- c r4 r8 c-]*2 < [b8 r b- b r4 r8 b-]*2
+  o2
+  # intro
+  g8 r g- g r4 r8 g+ | g8 r g- g r4 r8 e+ | e8 r e- e r4 r8 e+ | e8 r e- e r4 r8 c+ |
+  c8 r c- c r4 r8 c+ | c8 r c- c r4 r8 < b+ | b8 r b- b r4 r8 b+ | b8 r b- b r4 r8 > e |
+
+  # part_a
+  [g8 r g- g r4 r8 g+ | g8 r g- g r4 r8 e+ | e8 r e- e r4 r8 e+ | e8 r e- e r4 r8 e |
+  g8 r g- g r4 r8 g+ | g8 r g- g r4 r8 e+ | e8 r e- e r4 r8 e+ | e8 r e- e r4 r8 c+ |
+  c8 r c- c r4 r8 c+ | c8 r c- c r4 r8 < b+ | b8 r b- b r4 r8 b+ | b8 r b- b r4 r8 a+ |
+  a8 r a- a r4 r8 > c | d8 r d+ d r4 r8 d- | d4 r8 d16 d d2 | d2 f+8. f+ f+8]*2
 
 midi-percussion:
-  V1: o2 [[c8 r c c r4 r8 c]*8]*3
-  V2: (vol 50) o2 [[d8 d16 d16 r8 d d d16 d16 r8 d8]*8]*3
+  V1:
+  o2
+  [c8 r c c r4 r8 c]*8
+  [[c8 r c c r4 r8 c]*8 [c8 r c c r4 r8 c]*6 r1*2]*2
+  V2: (vol 50)
+  o2
+  [d8 d16 d16 r8 d d d16 d16 r8 d8]*8
+  [[d8 d16 d16 r8 d d d16 d16 r8 d8]*8 [d8 d16 d16 r8 d d d16 d16 r8 d8]*6 r1*2]*2
+  V3: (vol 50)
+  o3
+  r1*8
+  [r1*8 r1*6 c+4 r4 r4 c+4 r1]*2
 
 midi-synth-pad-halo: (vol 50)
-  o4 g1~1 e1~1 > c1~1 < g1~1
+  o4 g1~1 e1~1 > c1~1 < [f+8. g16~2.]*2  # intro 8 bars
 
 
 # melody
 midi-string-ensemble-1: (vol 60)
-  o3 b1 | > e2 a | b > e | a b | > c1 | d2 e | f+8. g16~16 f+16 d < b~b2~2.~8 r8 |  # 8 bars
+  o3 b1 | > e2 a | b > e | a b | > c1 | d2 e | f+8. g16~16 f+16 d < b~b2~2.~8 r8 |  # intro 8 bars
 
-verse1 = [o3 > e8. f+16~8 g8 < b8. > f+16~8 d8~2 r8 < b16 > e f+ g16~8 | b8. b16~8 g16 f+ e2~2.]
+verse1 = [o3 > e8. f+16~8 g8 < b8. > f+16~8 d8~2 r8 < b16 > e f+ g16~8 b8. b16~8 g16 f+ e2~2.]
 part_a = [
   verse1 r8 < b | verse1 r8 e16 f+ |  # 8 bars
   g2 a | b4. > c4 c d d c16 < b b8~4.~2. o3 r8 b |  # 2 bars
@@ -29,9 +48,9 @@ midi-reed-organ: (vol 60)
 
 midi-synth-pad-new-age:
   r1*8  # intro
-  r1*8  # verse1
+  [r1*8  # verse1
   r1*7  # chorus
-  o3 (vol 40) (quant 40) {e8 a b > d e}4 {< b > e g a b} {e g b > c+ d} {< b > e f+ g a} |
+  o3 (vol 40) (quant 40) {e8 a b > d e}4 {< b > e g a b} {e g b > c+ d} {< b > e f+ g a}]*2
 
 midi-reed-organ: (vol 60)
   part_a | %bridge
@@ -46,3 +65,4 @@ midi-reed-organ: (vol 60)
   @outro o5 e2.~8 d16 e | < b8. a16 ~8 b8 e4. e16 f+ | g8. a16~8 g16 f+ e8. d16~8 < b8 | ~1 |
   r8 b16 > c d e8 f+16 ~8 g8 ~8 a8 | b8. e16 ~8 > d8 ~8 c8 ~8 < b16 > c | < b8. a16 ~8 g8 a2 |
   ~2 g4 f+ | f+8. g16 ~8 f+8 d8. < b16 ~8 > e8 | ~1 |
+  
