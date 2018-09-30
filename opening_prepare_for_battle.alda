@@ -1,0 +1,28 @@
+# A minor
+# total: 16 bars + 2 bars
+(tempo! 160)
+
+# todo: last 8 bars & ending 2 bars
+
+midi-percussion:
+  V1:
+  o1
+  [b4*4]*3 | b*3 r | [b r b r]*2 | b*4 | r*4 |
+  V2:
+  o2
+  [r4*4]*3 | r*3 d16*4 | [r4 d r d]*2 | r*4 | d16 d r8 r4 d16 d r d d*4 |
+
+midi-electric-bass-pick:
+  o1
+  a1 | r8 e g a > c < b g a | f1 | r8 e g a > c < a > c d |
+  [< e4 r8 e8~4 > d8 e]*2 | < a8 e g a8~8 > c8 r c8 | < e4 e r r |
+
+midi-saw-wave:
+  (vol 76)
+  o4
+  [a16 a16~8 g4~8 e8 g a | r4*4]*2 | [r4*4]*3 | e16 e16~8 g4~2 |
+
+midi-square-lead:
+  (quant 80)
+  o3
+  [r4*4]*4 | [b8 g+8~8 e8~8 b8~4]*2 | g8 e g a8~8 > c8~8 d | r4*4 |
